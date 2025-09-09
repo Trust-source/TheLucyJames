@@ -1,4 +1,5 @@
 import Lucy from '../assets/0.jpg'
+
 import { SquareArrowOutDownRight } from 'lucide-react';
 
 const Homepage = () => {

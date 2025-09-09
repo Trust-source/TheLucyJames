@@ -11,25 +11,19 @@ import SplashScreen from "./components/Splash";
 
 function App() {
   const [menu, setMenu] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true); // state to track splash
 
   useEffect(() => {
-    // Listen for when everything is loaded
-    const handleLoad = () => setLoading(false);
-
-    if (document.readyState === "complete") {
-      // If already loaded, hide splash immediately
+    // Simulate loading time (e.g., fetching data, assets, etc.)
+    const timer = setTimeout(() => {
       setLoading(false);
-    } else {
-      window.addEventListener("load", handleLoad);
-    }
+    }, 4000); // splash screen shows for 3 seconds
 
-    // Cleanup
-    return () => window.removeEventListener("load", handleLoad);
+    return () => clearTimeout(timer);
   }, []);
 
   if (loading) {
-    return <SplashScreen />;
+    return <SplashScreen />; // show splash screen while loading
   }
 
   return (
